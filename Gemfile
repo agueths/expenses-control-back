@@ -22,7 +22,10 @@ gem "puma", "~> 5.0"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
+
+# JWT authentication
+gem 'jwt', '~> 2.5.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -34,15 +37,27 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Tests
+  gem 'capybara', '~> 2.18'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Code smell
+  gem 'reek', '~> 6.1'
+  # Static code analyzer (a.k.a. linter) and code formatter
+  gem 'rubocop', '~> 1.39'
+  # Intellisense
+  gem 'solargraph', '~> 0.47'
 end
 
