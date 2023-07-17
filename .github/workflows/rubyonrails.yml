@@ -17,14 +17,14 @@ jobs:
       postgres:
         image: postgres:11-alpine
         ports:
-          - "5432:5432"
+          - "55000:5432"
         env:
           POSTGRES_DB: expenses_control_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/expenses_control_test"
+      DATABASE_URL: "postgres://postgres:postgres@localhost:55000/expenses_control_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
