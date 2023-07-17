@@ -28,6 +28,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Enable UUID on PostgrSQL
+        uses: psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname="$POSTGRES_DB"<<-EOSQL
+              CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+              EOSQL
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
