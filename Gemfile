@@ -44,7 +44,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   # Tests
-  gem 'capybara', '~> 2.18'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
   gem 'rspec-rails', '~> 6.0.0'
 end
