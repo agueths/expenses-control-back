@@ -9,6 +9,7 @@ class ApplicationController < ActionController::API
     payload = Tokenization.decode(token)
     return false if payload[:error]
 
+    params[:token] = payload
     true
   end
 
